@@ -16,21 +16,21 @@ struct Node {
     node_ptr next_;
 };  //struct Node
 
-class Linked_list {
+class List {
 public:
     using value_type = Node::value_type;
     using node_ptr = Node::node_ptr;
 
-    Linked_list() : node(std::make_shared<Node>()) {}
-    bool empty() const;
-    Linked_list& insert(int position, value_type insert_value);
-    Linked_list& remove(int position);
-    Linked_list& modify(int position, value_type modified_value);
-    Linked_list& check(int position) const;
-    Linked_list& erase();
+    List() : head(std::make_shared<Node>()) {}
+    bool empty() const {return !node->value_;}
+    List& insert(int position, value_type insert_value);
+    List& remove(int position);
+    List& modify(int position, value_type modified_value);
+    List& check(int position) const;
+    List& erase();
 private:
+    node_ptr head;
     node_ptr node;
-    int size = 0;
 };  //class Linked_list
 
 }   //namespace Linked_list
